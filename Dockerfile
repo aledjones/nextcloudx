@@ -1,0 +1,11 @@
+FROM nextcloud:stable
+
+RUN echo "deb http://deb.debian.org/debian stretch-backports main" > /etc/apt/sources.list.d/backports.list && apt update -y
+RUN mkdir -p /usr/share/man/man1
+RUN apt install libreoffice libreoffice-l10n-de libreoffice-help-de -y
+RUN apt install ffmpeg imagemagick ghostscript -y
+RUN apt install p7zip p7zip-full -y
+
+WORKDIR /var/www/html
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["apache2-foreground"]
