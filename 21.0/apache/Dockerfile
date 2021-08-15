@@ -1,4 +1,4 @@
-FROM nextcloud:21.0.3-apache
+FROM nextcloud:21.0.4-apache
 
 RUN apt update && apt install --no-install-recommends -y libreoffice \
                                                       ffmpeg \
